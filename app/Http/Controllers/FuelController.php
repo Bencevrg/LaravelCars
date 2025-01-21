@@ -11,7 +11,8 @@ class FuelController extends Controller
      */
     public function index()
     {
-        //
+        $fuels = Fuel::all();
+        return view('fuel.index', ['fuels'=>$fuels]);
     }
 
     /**

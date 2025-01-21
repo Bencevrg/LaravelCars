@@ -11,7 +11,8 @@ class BodyController extends Controller
      */
     public function index()
     {
-        //
+        $bodies = Body::all();
+        return view('body.index', ['bodies'=>$bodies]);
     }
 
     /**

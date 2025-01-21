@@ -11,7 +11,8 @@ class ModelController extends Controller
      */
     public function index()
     {
-        //
+        $models = Model::all();
+        return view('model.index', ['models'=>$models]);
     }
 
     /**
