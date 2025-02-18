@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Maker;
+use App\Http\Requests\BasicRequest;
 
 class MakerController extends Controller
 {
@@ -12,7 +14,7 @@ class MakerController extends Controller
     public function index()
     {
         $makers = Maker::all();
-        return view('maker.index', ['makers'=>$makers]);
+        return view('makers.index', ['makers'=>$makers]);
     }
 
     /**
@@ -20,15 +22,23 @@ class MakerController extends Controller
      */
     public function create()
     {
-        //
+        return view(view: 'makers.create');
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BasicRequest $request)
     {
-        //
+        $maker  = new Maker();
+        $maker->name = $request->input('name');
+        $maker->logo = $request->input('logo');
+        $maker->save();
+ 
+        return redirect()->route('makers.index')->with('success', "{$maker->name} sikeresen létrehozva");
     }
 
     /**
@@ -36,7 +46,8 @@ class MakerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $maker = Maker::find($id);
+        return view('makers.show', compact('maker'));
     }
 
     /**
@@ -44,15 +55,20 @@ class MakerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $maker = Maker::find($id);
+        return view('makers.edit', compact('maker'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BasicRequest $request, string $id)
     {
-        //
+        $maker  = Maker::find($id);
+        $maker->name = $request->input('name');
+        $maker->save();
+
+        return redirect()->route('makers.index')->with('success', "{$maker->name} sikeresen módosítva");
     }
 
     /**
@@ -60,6 +76,9 @@ class MakerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $maker = Maker::find($id);
+        $maker->delete();
+
+        return redirect()->route('makers.index')->with('success', "Sikeresen törölve");
     }
 }

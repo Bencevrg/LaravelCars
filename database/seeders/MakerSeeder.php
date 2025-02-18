@@ -4,9 +4,28 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Maker;
 
 class MakerSeeder extends Seeder
 {
+    const ITEMS = [
+        'Ford',
+        'Aubi',
+        'Bmw',
+        'Skoda',
+        'Mercedes',
+        'Lamborghini',
+        'Suzuiki',
+        'Kia',
+        'Honda',
+        'Hyundai',
+        'Mitsubishi',
+        'Bugatti',
+        'Nissan',
+        'Seat',
+        'Volvo',
+        'VolksWagen',
+    ];
     /**
      * Run the database seeds.
      */
@@ -19,3 +38,4 @@ class MakerSeeder extends Seeder
         }
     }
 }
+
