@@ -8,11 +8,12 @@
     <!-- Scripts 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>-->
-    <!-- Styles 
+<!-- Styles 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}" >
 
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">-->
+    <link rel="stylesheet" href="{{ asset('css/cars.css') }}">
 </head>
 
 <body>
@@ -26,6 +27,8 @@
                 <ul>
                     <li><a href="{{ route('makers.index') }}">Gyártók</a></li>
                     <li><a href="{{ route('bodies.index') }}">Karosszériák</a></li>
+                    <li><a href="{{ route('models.index') }}">Modellek</a></li>
+                    <li><a href="{{ route('vehicles.index') }}">Járművek</a></li>
                 </ul>
             </nav>
         </div>

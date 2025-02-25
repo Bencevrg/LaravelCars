@@ -1,3 +1,3 @@
 <div>
-    <!-- Be present above all else. - Naval Ravikant -->
+    <!-- Well begun is half done. - Aristotle -->
 </div>

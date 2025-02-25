@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Model;
+use App\Models\Vehicle;
 use App\Http\Requests\BasicRequest;
 
-class ModelController extends Controller
+class VehicleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $models = Model::all();
-        return view('models.index', ['models'=>$models]);
+        $vehicles = Vehicle::all();
+        return view('vehicles.index', ['vehicles' => $vehicles]);
     }
 
     /**

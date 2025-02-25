@@ -3,6 +3,8 @@
 use App\Http\Controllers\BodyController;
 use App\Http\Controllers\MakerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\ModelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +24,7 @@ Route::get('/bodies/{body}', [BodyController::class, 'show'])->name('bodies.show
 Route::get('/bodies/{body}/edit', [BodyController::class, 'edit'])->name('bodies.edit');
 Route::delete('/bodies/{maker}', [BodyController::class, 'destroy'])->name('bodies.destroy');
 Route::patch('/bodies/{body}', [BodyController::class, 'update'])->name('bodies.update');
+Route::get('/makers/{maker}/fetch-models', [MakerController::class, 'fetchModels'])->name('makers.fetch.models');
+
+Route::resource('models', ModelController::class);
+Route::resource('vehicles', VehicleController::class);

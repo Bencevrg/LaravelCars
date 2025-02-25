@@ -81,4 +81,13 @@ class MakerController extends Controller
 
         return redirect()->route('makers.index')->with('success', "Sikeresen törölve");
     }
+
+    public function fetchModels($entityId)
+	{
+		$entity = Maker::find($entityId);
+		$result['data'] = $entity->models;
+		//$result['logo'] = $this->getLogo($entity);
+
+		return response()->json($result);
+	}
 }
